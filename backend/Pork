@@ -1,0 +1,68 @@
+    -> node server.js
+    -> 
+    -> CREATE TABLE orders (
+    ->   id INT AUTO_INCREMENT PRIMARY KEY,
+    ->   name VARCHAR(255),
+    ->   surname VARCHAR(255),
+    ->   email VARCHAR(255),
+    ->   phone VARCHAR(20),
+    ->   porkType VARCHAR(100),
+    ->   packs INT,
+    ->   price DECIMAL(10,2),
+    ->   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'cd C:\Users\maxwe\Desktop
+node server.js
+
+CREATE TABLE orders (
+  id INT AUTO_IN' at line 1
+mysql> 
+mysql> CREATE TABLE pork_types (
+    ->   id INT AUTO_INCREMENT PRIMARY KEY,
+    ->   type VARCHAR(100)
+    -> );
+ERROR 1046 (3D000): No database selected
+mysql> 
+mysql> CREATE TABLE products (
+    ->   id INT AUTO_INCREMENT PRIMARY KEY,
+    ->   title VARCHAR(255),
+    ->   description TEXT,
+    ->   price DECIMAL(10,2),
+    ->   image VARCHAR(500)
+    -> );
+ERROR 1046 (3D000): No database selected
+mysql> SHOW DATABASES;
++------------------------------------+
+| Database                           |
++------------------------------------+
+| credentials                        |
+| customers                          |
+| information_schema                 |
+| lms                                |
+| mysql                              |
+| performance_schema                 |
+| pork_orders                        |
+| rented vehicles + customer details |
+| sys                                |
+| vehicles                           |
++------------------------------------+
+10 rows in set (0.10 sec)
+
+mysql> USE credentials
+Database changed
+mysql> CREATE TABLE orders (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), surname VARCHAR(255), email VARCHAR(255), phone VARCHAR(20), porkType VARCHAR(100), packs INT, price DECIMAL(10,2), created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+Query OK, 0 rows affected (0.20 sec)
+
+mysql> CREATE TABLE pork_types (id INT AUTO_INCREMENT PRIMARY KEY, type VARCHAR(100));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> CREATE TABLE products (id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255), description TEXT, price DECIMAL(10,2), image VARCHAR(500));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> netstat -ano | findstr :3000
+    -> netstat -ano | findstr :3000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'netstat -ano | findstr :3000
+netstat -ano | findstr :3000' at line 1
+mysql> netstat -ano | findstr :3000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'netstat -ano | findstr :3000' at line 1
+mysql> Terminal close -- exit!

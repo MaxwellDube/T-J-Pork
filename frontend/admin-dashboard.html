@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <img id="logo" src="images/PureBreed Logo.png" alt="logo">
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="order.html">Order</a>
+      <a href="admin.html" class="active">Admin</a>
+    </nav>
+  </header>
+
+  <main class="admin-dashboard">
+    <h2>Orders</h2>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Pork Type</th>
+            <th>Packs</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody id="ordersTableBody"></tbody>
+      </table>
+  </main>  
+
+  <script>
+    async function fetchOrders() {
+      const res = await fetch('http://localhost:3001/orders');
+      const orders = await res.json();
+      const tableBody = document.getElementById('ordersTableBody');
+      tableBody.innerHTML = '';
+      orders.forEach(order => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${order.id}</td>
+          <td>${order.name}</td>
+          <td>${order.surname}</td>
+          <td>${order.email}</td>
+          <td>${order.phone}</td>
+          <td>${order.porkType}</td>
+          <td>${order.packs}</td>
+          <td>${order.price}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    fetchOrders();
+  </script>
+</body>
+</html>

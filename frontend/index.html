@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home - Fresh Pork</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="navbar">
+    <img id="logo" src="images/PureBreed Logo.png" alt="logo">
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="order.html">Order</a>
+      <a href="admin.html">Admin</a>
+    </div>
+  </div>
+
+  <!-- Slideshow section starts here -->
+  <div class="slideshow-container">
+    <div class="slide fade">
+      <img src="images/indexHeroImg.jpg" alt="Delicious Pork 1">
+      <div class="caption">Fresh & Juicy Pork Cuts</div>
+    </div>
+
+    <div class="slide fade">
+      <img src="images/porkBelly.jpg" alt="Delicious Pork 2">
+      <div class="caption">Raised with Love</div>
+    </div>
+
+    <div class="slide fade">
+      <img src="images/slicePork.jpg" alt="Delicious Pork 3">
+      <div class="caption">Healthy & Organic</div>
+    </div>
+
+    <!-- Navigation dots -->
+    <div class="dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+  </div>
+  <!-- Slideshow section ends here -->
+
+  <div class="container">
+    <h2>Welcome to to to to to to Fresh Pork!</h2>
+    <p>We raise our piglets with care and dedication to provide you with the freshest pork in 5kg packs for R300.</p>
+    <button onclick="window.location.href='order.html'">Place Your Order</button>
+  </div>
+
+  <div id="homeProducts" class="product-list"></div>
+
+  <script src="script.js"></script>
+  <script>
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const productContainer = document.getElementById('homeProducts');
+
+    products.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+
+        card.innerHTML = `
+        <img src="${product.image}" alt="${product.title}">
+        <h3>${product.title}</h3>
+        <p>${product.description}</p>
+        <strong>R${product.price}</strong>
+        `;
+
+        productContainer.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>

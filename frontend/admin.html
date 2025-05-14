@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Login - Fresh Pork</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="navbar">
+    <img id="logo" src="images/PureBreed Logo.png" alt="logo">
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="order.html">Order</a>
+      <a href="admin.html">Admin</a>
+    </div>
+  </div>
+  <div class="login-container">
+    <div class="login-form">
+      <h2>Admin Login</h2>
+
+      <div class="input-field">
+        <input type="text" id="adminUser" placeholder="Enter username" required>
+      </div>
+
+      <div class="input-field">
+        <input type="password" id="adminPass" placeholder="Enter password" required>
+      </div>
+
+      <button onclick="loginAdmin()">Login</button>
+    </div>
+
+    <div class="side-image">
+      <div>
+        <h3>Welcome Back!</h3>
+        <p>Manage orders and view customer requests with ease.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

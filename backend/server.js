@@ -1,9 +1,11 @@
 const express = require('express');
-const cors = require('cors');
-const mysql = require('mysql2');
+const mysql = require('mysql');
 const app = express();
 
-app.use(cors());
+const cors = require('cors');
+app.use(cors({
+  origin: 'https://yourfrontenddomain.com'  // Replace with your actual frontend domain
+}));
 app.use(express.json());
 
 const PORT = process.env.PORT || 3001;
@@ -12,8 +14,7 @@ const db = mysql.createConnection({
   host: 'sql8.freesqldatabase.com',
   user: 'sql8778649',
   password: 'MaxwellTaku12!',
-  database: 'sql8778649',
-  port: 3306,
+  database: 'sql8778649'
 });
 
 db.connect(err => {
@@ -24,7 +25,7 @@ db.connect(err => {
   console.log('Connected to MySQL');
 });
 
-app.post('/api/orders', (req, res) => {
+app.post('/orders', (req, res) => {
   const { name, surname, email, phone, porkType, packs, price } = req.body;
   const query = `
     INSERT INTO orders (name, surname, email, phone, porkType, packs, price)
@@ -36,7 +37,7 @@ app.post('/api/orders', (req, res) => {
   });
 });
 
-app.get('/api/orders', (req, res) => {
+app.get('/orders', (req, res) => {
   db.query('SELECT * FROM orders', (err, results) => {
     if (err) return res.status(500).send('Database error');
     res.json(results);

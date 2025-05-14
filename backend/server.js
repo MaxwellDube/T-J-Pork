@@ -4,11 +4,11 @@ const app = express();
 
 const cors = require('cors');
 app.use(cors({
-  origin: 'https://yourfrontenddomain.com'  // Replace with your actual frontend domain
+  //origin: 'tnj-pork.netlify.app'  // Replace with your actual frontend domain
 }));
 app.use(express.json());
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 const db = mysql.createConnection({
   host: 'sql8.freesqldatabase.com',

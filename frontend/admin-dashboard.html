@@ -39,7 +39,7 @@
 
   <script>
     async function fetchOrders() {
-      const res = await fetch('http://localhost:3001/orders');
+      const res = await fetch('hhttps://t-j-pork.onrender.com/orders');
       const orders = await res.json();
       const tableBody = document.getElementById('ordersTableBody');
       tableBody.innerHTML = '';

@@ -8,15 +8,16 @@
 </head>
 <body>
 
-  <header class="navbar">
+  <div class="navbar">
     <img id="logo" src="images/PureBreed Logo.png" alt="logo">
-    <nav class="nav-links">
+    <span class="hamburger">&#9776;</span>
+    <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="order.html" class="active">Order</a>
+      <a href="order.html">Order</a>
       <a href="admin.html">Admin</a>
-    </nav>
-  </header>
+    </div>
+  </div>
 
   <main class="order-container">
     <form id="orderForm" class="order-form">
@@ -52,6 +53,15 @@
       } else {
         alert('Failed to submit order.');
       }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
     });
   </script>
 </body>

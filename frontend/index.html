@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Home - Fresh Pork</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="navbar">
     <img id="logo" src="images/PureBreed Logo.png" alt="logo">
-    <div>
+    <span class="hamburger">&#9776;</span>
+    <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="order.html">Order</a>
@@ -50,25 +52,47 @@
 
   <div id="homeProducts" class="product-list"></div>
 
-  <script src="script.js"></script>
   <script>
-    const products = JSON.parse(localStorage.getItem('products')) || [];
-    const productContainer = document.getElementById('homeProducts');
+    let slideIndex = 0;
+    showSlides();
 
-    products.forEach(product => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
+    function showSlides() {
+      const slides = document.getElementsByClassName('slide');
+      const dots = document.getElementsByClassName('dot');
 
-        card.innerHTML = `
-        <img src="${product.image}" alt="${product.title}">
-        <h3>${product.title}</h3>
-        <p>${product.description}</p>
-        <strong>R${product.price}</strong>
-        `;
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
 
-        productContainer.appendChild(card);
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove('active');
+      }
+
+      slides[slideIndex - 1].style.display = 'block';
+      dots[slideIndex - 1].classList.add('active');
+
+      setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+
+    function currentSlide(n) {
+      slideIndex = n - 1;
+      showSlides();
+    }
+    
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
     });
   </script>
+
 
 </body>
 </html>

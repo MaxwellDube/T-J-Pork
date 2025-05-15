@@ -8,15 +8,16 @@
 </head>
 <body>
 
-  <header class="navbar">
+  <div class="navbar">
     <img id="logo" src="images/PureBreed Logo.png" alt="logo">
-    <nav class="nav-links">
+    <span class="hamburger">&#9776;</span>
+    <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="order.html">Order</a>
-      <a href="admin.html" class="active">Admin</a>
-    </nav>
-  </header>
+      <a href="admin.html">Admin</a>
+    </div>
+  </div>
 
   <main class="admin-dashboard">
     <h2>Orders</h2>
@@ -60,6 +61,15 @@
     }
 
     fetchOrders();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    });
   </script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
+require('dotenv').config();
+
 
 const cors = require('cors');
 app.use(cors({
@@ -11,11 +13,12 @@ app.use(express.json());
 const PORT = process.env.PORT || 3002;
 
 const db = mysql.createConnection({
-  host: 'sql8.freesqldatabase.com',
-  user: 'sql8778649',
-  password: 'MaxwellTaku12!',
-  database: 'sql8778649'
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
 });
+
 
 db.connect(err => {
   if (err) {

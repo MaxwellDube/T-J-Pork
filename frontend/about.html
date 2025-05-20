@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About - Fresh Pork</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
 </head>
 <body>
   <div class="navbar">
@@ -18,15 +20,67 @@
     </div>
   </div>
 
+  <header class="about-hero" data-aos="fade-in">
+    <h1>About Us</h1>
+    <p>Trusted pork from farm to table, raised with care and delivered fresh.</p>
+  </header>
+
   <div class="container">
-    <h2>About Us</h2>
-    <p>We are two lifelong friends passionate about farming and delivering quality pork. Our pigs are fed with the best grains and raised in ethical environments. Our trusted team ensures every chop is fresh and safe for your family.</p>
+    <section class="section" data-aos="fade-up">
+      <h2>Who We Are</h2>
+      <p>We are two lifelong friends passionate about farming and delivering quality pork. Our pigs are fed with the best grains and raised in ethical environments. Our trusted team ensures every chop is fresh and safe for your family.</p>
+    </section>
+
+    <section class="section grid" data-aos="fade-up">
+      <div class="img-box">
+        <img src="images/butch2.jpeg" alt="Farm view">
+      </div>
+      <div>
+        <h2>Our Mission</h2>
+        <p>To provide ethical, high-quality pork with care and transparency. From the farm to your table, we strive to maintain the highest standards of hygiene, animal care, and trust.</p>
+      </div>
+    </section>
+
+    <section class="section grid" data-aos="fade-up">
+      <div>
+        <h2>Our Journey</h2>
+        <p>Starting with a shared vision and one small farm, we’ve grown into a trusted name in pork supply. Our commitment to freshness, community, and sustainability drives everything we do.</p>
+      </div>
+      <div class="img-box">
+        <img src="images/butch1.jpg" alt="Our team">
+      </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+      <h2>By the Numbers</h2>
+      <div class="grid">
+        <div class="number-box">
+          <h3>2</h3>
+          <p>Founders</p>
+        </div>
+        <div class="number-box">
+          <h3>10+</h3>
+          <p>Years Farming</p>
+        </div>
+        <div class="number-box">
+          <h3>300+</h3>
+          <p>Orders Delivered</p>
+        </div>
+      </div>
+    </section>
   </div>
+
+  <footer>
+    &copy; 2025 Fresh Pork. All rights reserved.
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    AOS.init({ duration: 1000 });
+
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.querySelector('.hamburger');
       const navLinks = document.querySelector('.nav-links');
-
       hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
       });
